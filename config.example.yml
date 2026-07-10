@@ -1,0 +1,64 @@
+search:
+  cron: "0 * * * *"
+  created_window_days: 3
+  created_lookback_days: 90
+  exclude_forks: true
+  exclude_archived: true
+  seen_cooldown_days: 14
+  max_strategy_runs_per_tick: 2
+  max_new_repos_per_tick: 15
+  cooldown_skip_page_threshold: 0.8
+  max_cooldown_extra_pages_per_strategy: 2
+  strategies:
+    - id: ai-agents
+      name: AI Agent 项目
+      enabled: false
+      query: 'agent OR llm OR "ai assistant"'
+      stars_min: 10
+      stars_max: 500
+      max_pages: 8
+      pages_per_run: 1
+      per_run_target: 8
+    - id: agent-skills
+      name: Agent Skill 项目
+      enabled: false
+      query: 'skill OR "claude code" OR codex'
+      stars_min: 10
+      stars_max: 500
+      max_pages: 8
+      pages_per_run: 1
+      per_run_target: 8
+    - id: mcp-servers
+      name: MCP 服务项目
+      enabled: false
+      query: 'mcp OR "model context protocol"'
+      stars_min: 10
+      stars_max: 500
+      max_pages: 8
+      pages_per_run: 1
+      per_run_target: 8
+
+agent:
+  cron: "*/10 * * * *"
+  batch_size: 1
+  max_turns: 6
+  failure_retry_limit: 3
+
+providers:
+  - name: openai
+    base_url: https://api.openai.com/v1
+    model: gpt-4o-mini
+    active: true
+
+notify:
+  instant_enabled: true
+  daily_digest_enabled: true
+  daily_digest_crons:
+    - "0 21 * * *"
+
+feishu:
+  group_chat_id: ""
+
+control:
+  crawl_enabled: true
+  agent_enabled: true

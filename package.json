@@ -1,0 +1,9 @@
+{
+  "name": "repo-radar-dev",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:api": "python -m uvicorn main:app --reload --host 127.0.0.1 --port 8080",
+    "dev:web": "npm --prefix frontend run dev"
+  }
+}
