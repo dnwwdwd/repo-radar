@@ -10,6 +10,7 @@ export type Analysis = {
   license: string;
   evidence: string[];
   confidence: number;
+  agent_log: { thought: string; action: string }[];
   analyzed_at: string;
 };
 

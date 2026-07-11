@@ -1,6 +1,6 @@
 FROM node:20-slim AS frontend-builder
 WORKDIR /app/frontend
-COPY frontend/package.json frontend/package-lock.json frontend/tsconfig.json frontend/tsconfig.node.json frontend/tsconfig.app.json frontend/vite.config.ts frontend/index.html ./
+COPY frontend/package.json frontend/package-lock.json frontend/tsconfig.json frontend/tsconfig.node.json frontend/tsconfig.app.json frontend/vite.config.ts frontend/tailwind.config.js frontend/postcss.config.js frontend/index.html ./
 COPY frontend/src ./src
 RUN npm ci
 RUN npm run build
